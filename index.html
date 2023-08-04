@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./index.js"></script>
+    <title>Control de Stock</title>
+</head>
+
+<body>
+    <header>
+        <span>☰</span>
+        <h1 class="titulo">Control de stock</h1>
+    </header>
+
+    <section class="filtro">
+        <label class="tituloBuscar">Buscar articulo por :</label>
+        <div class="radioBtn">
+            <div>
+                <input type="radio" name="filtro" id="fNombre" class="inputR" value="Articulos"><label for="fNombre"
+                    class="filtroCheck" id="filtroCheckArt">Nombre</label>
+            </div>
+            <div>
+                <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial"><label
+                    for="fCodigoMin" class="filtroCheck" id="filtroCheckCm">Codigo</label>
+            </div>
+            <span class="filtroCheck">Filtrar</span>
+        </div>
+    </section>
+
+    <section class="busqueda" id="busqueda">
+        <input type="text" list="medicacion" id="entrada" class="entrada">
+        <datalist id="medicacion"></datalist>
+    </section>
+
+    <hr class="linea">
+
+    <section class="datos">
+
+        <span id="codMinisterial" class="codMinisterial">
+            <h2>#M0000000</h2>
+        </span>
+
+        <span id="nombreArticulo" class="nombreArticulo">
+            <h2>Descripcion:
+                <a href="">No disponible</a>
+            </h2>
+        </span>
+
+        <div class="estado">
+
+            <span id="estadoStock" class="estadoStock">
+                Estado
+            </span>
+
+        </div>
+
+        <div class="contenedorStock">
+            <div class="stock">
+                <span>Stock en Deposito</span>
+                <span id="stockDeposito">00000</span>
+            </div>
+
+            <div class="vto">
+
+                <h2>Proximo vencimiento hasta 07/24</h2>
+
+                <div class="vtoContainer">
+
+                    <div class="vtoInner">
+                        <span>Lote</span>
+                        <ul id="proxVtoLote">
+                        </ul>
+                    </div>
+
+                    <div class="vtoInner">
+                        <span>Vto</span>
+                        <ul id="proxVtoVto">
+                        </ul>
+                    </div>
+
+                    <div class="vtoInner">
+                        <span>Cant</span>
+                        <ul id="proxVtoCant">
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="listaStock" id="listaStock">
+        <div class="divLista">
+            <ul class="lista" id="lista"></ul>
+        </div>
+
+        <div class="botoneraLista">
+            <button class="bbutton" id="btnDescargar">Descargar</button>
+            <button class="bbutton" id="btnCerrar">Cerrar</button>
+        </div>
+
+    </div>
+
+    <p class="textoInferior">Ultima actualizacion: 01/08/23 09:53 hs</p>
+
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>
