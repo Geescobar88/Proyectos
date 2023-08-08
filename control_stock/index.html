@@ -35,7 +35,7 @@
     </section>
 
     <section class="busqueda" id="busqueda">
-        <input type="text" list="medicacion" id="entrada" class="entrada">
+        <input type="text" list="medicacion" id="entrada" class="entrada" disabled>
         <datalist id="medicacion"></datalist>
     </section>
 
@@ -43,28 +43,36 @@
 
     <section class="datos">
 
-        <span id="codMinisterial" class="codMinisterial">
-            <h2>#M0000000</h2>
-        </span>
-
-        <span id="nombreArticulo" class="nombreArticulo">
-            <h2>Descripcion:
-                <a href="">No disponible</a>
-            </h2>
-        </span>
-
-        <div class="estado">
-
-            <span id="estadoStock" class="estadoStock">
-                Estado
+        <div class="Descripcion">
+            <span id="codMinisterial" class="codMinisterial">
+                <h2>#M0000000</h2>
             </span>
 
+            <span>-</span>
+
+            <span id="nombreArticulo" class="nombreArticulo">
+                <h2>Descripcion:
+                    <a href="">No disponible</a>
+                </h2>
+            </span>
         </div>
 
         <div class="contenedorStock">
             <div class="stock">
                 <span>Stock en Deposito</span>
                 <span id="stockDeposito">00000</span>
+            </div>
+
+            <div class="estado">
+                <span id="estadoStock" class="estadoStock">
+                    Estado Stock
+                </span>
+            </div>
+
+            <div class="consumo">
+                <span>
+                    Consumo mensual
+                </span>
             </div>
 
             <div class="vto">

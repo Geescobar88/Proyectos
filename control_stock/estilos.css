@@ -78,9 +78,11 @@ section, .linea {
 }
 
 .filtroCheck {
-    border: 2px solid;
+    border: 2px solid var(--fuerte);
     border-radius: 5px;
     padding: 10px;
+    background-color: var(--claro);
+    font-weight: bolder;
 }
 
 /* ----------------------------------BUSQUEDA---------------------------------- */
@@ -96,6 +98,7 @@ section, .linea {
     padding: 10px;
     border-radius: 5px;
     border: 2px solid var(--fuerte);
+    background-color: var(--secundario);
 }
 
 /* ----------------------------------DATOS---------------------------------- */
@@ -105,6 +108,13 @@ section, .linea {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.Descripcion {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
 }
 
 /* ----------------------------------LISTAS---------------------------------- */
