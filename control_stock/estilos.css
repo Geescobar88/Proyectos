@@ -117,6 +117,22 @@ section, .linea {
     gap: 10px;
 }
 
+.stock {
+    width: 90%;
+}
+
+.stockInner {
+    background-color: var(--secundario);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.inner {
+    font-weight: bold;
+}
+
 /* ----------------------------------LISTAS---------------------------------- */
 
 .listaStock {
