@@ -53,7 +53,18 @@ section, .linea {
     width: 90%;
 }
 
+.bbutton {
+    border: 2px solid var(--fuerte);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--fuerte);
+    color: var(--claro);
+    font-weight: bolder;   
+}
 
+li {
+    list-style-type: none;
+}
 
 /* ----------------------------------FILTRO---------------------------------- */
 
@@ -89,10 +100,13 @@ section, .linea {
 
 .busqueda {
     height: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 .entrada {
-    width: 100%;
+    width: 90%;
     font-weight: bolder;
     text-transform: uppercase;
     padding: 10px;
@@ -104,34 +118,97 @@ section, .linea {
 /* ----------------------------------DATOS---------------------------------- */
 
 .datos {
-    border : 1px solid;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .Descripcion {
     max-width: 100%;
     display: flex;
-    justify-content: flex-start;
-    gap: 10px;
+    flex-direction: column;
+    text-align: center;
 }
 
 .stock {
-    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .stockInner {
+    width: 30%;
+    height: 100px;
     background-color: var(--secundario);
     border-radius: 5px;
     display: flex;
-    justify-content: space-between;
-    padding: 5px;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
 }
 
 .inner {
     font-weight: bold;
+
 }
+
+/* ----------------------------------VENCIMIENTOS---------------------------------- */
+
+.vto {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vtoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0A0A0A;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.vtoHeaders {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
+.vtoRows {
+    display: flex;
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--claro);
+    color: #0A0A0A;
+    justify-content: center;
+}
+
+.vtoItems {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.vtoItems>ul {
+    display: flex;
+}
+
+.vtoItems>li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--fuerte);
+}
+
 
 /* ----------------------------------LISTAS---------------------------------- */
 
@@ -155,8 +232,6 @@ section, .linea {
         justify-content: space-around;
     }
 
-    .tituloBuscar {
-    }
 
     .radioBtn {
         width: 30%;

@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
     <script src="./index.js"></script>
     <title>Control de Stock</title>
 </head>
@@ -23,11 +23,11 @@
         <label class="tituloBuscar">Buscar articulo por :</label>
         <div class="radioBtn">
             <div>
-                <input type="radio" name="filtro" id="fNombre" class="inputR" value="Articulos"><label for="fNombre"
+                <input type="radio" name="filtro" id="fNombre" class="inputR" value="Articulos" /><label for="fNombre"
                     class="filtroCheck" id="filtroCheckArt">Nombre</label>
             </div>
             <div>
-                <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial"><label
+                <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial" /><label
                     for="fCodigoMin" class="filtroCheck" id="filtroCheckCm">Codigo</label>
             </div>
             <span class="filtroCheck">Filtrar</span>
@@ -35,86 +35,70 @@
     </section>
 
     <section class="busqueda" id="busqueda">
-        <input type="text" list="medicacion" id="entrada" class="entrada" disabled>
+        <input type="text" list="medicacion" id="entrada" class="entrada" disabled />
         <datalist id="medicacion"></datalist>
+        <button class="bbutton">Borrar</button>
     </section>
 
-    <hr class="linea">
+    <hr class="linea" />
 
     <section class="datos">
-
         <div class="Descripcion">
-            <span id="codMinisterial" class="codMinisterial">
-                <h2>#M0000000</h2>
-            </span>
-
-            <span>-</span>
-
             <span id="nombreArticulo" class="nombreArticulo">
-                <h2>Descripcion:
-                    <a href="">No disponible</a>
-                </h2>
+                <h2>DESCRIPCION</h2>
             </span>
+
+            <span id="codMinisterial" class="codMinisterial">
+                <h3>#M0000000</h3>
+            </span>
+
         </div>
 
         <div class="stock">
             <div class="stockInner">
-                <span class="inner">
-                    Stock en Deposito
-                </span>
-                <span id="stockDeposito">
-                    00000
-                </span>
+                <span class="inner"> Stock en Deposito </span>
+                <span id="stockDeposito"> 00000 </span>
             </div>
 
             <div class="stockInner">
-                <span class="inner">
-                    Estado
-                </span>
-                <span id="estadoStock">
-                    En stock
-                </span>
+                <span class="inner"> Estado </span>
+                <span id="estadoStock"> En stock </span>
             </div>
 
             <div class="stockInner">
-                <span class="inner">
-                    Consumo mensual
-                </span>
-                <span id="consumo">
-                    0000
-                </span>
-
+                <span class="inner"> Consumo mensual </span>
+                <span id="consumo"> 0000 </span>
             </div>
-
         </div>
 
         <div class="vto">
-
-            <h2>Proximo vencimiento hasta 07/24</h2>
+            <label>Proximo vencimiento hasta 07/24</label>
 
             <div class="vtoContainer">
-
-                <div class="vtoInner">
+                <div class="vtoHeaders">
                     <span>Lote</span>
-                    <ul id="proxVtoLote">
-                    </ul>
-                </div>
-
-                <div class="vtoInner">
                     <span>Vto</span>
-                    <ul id="proxVtoVto">
-                    </ul>
-                </div>
-
-                <div class="vtoInner">
                     <span>Cant</span>
-                    <ul id="proxVtoCant">
-                    </ul>
                 </div>
 
+                <div class="vtoRows">
+                    <ul id="vtoItems" class="vtoItems">
+                        <li> <span>Lote</span>
+                            <span>Vto</span>
+                            <span>Cant</span>
+                        </li>
+                        <li> <span>Lote</span>
+                            <span>Vto</span>
+                            <span>Cant</span>
+                        </li>
+                        <li> <span>Lote</span>
+                            <span>Vto</span>
+                            <span>Cant</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-
     </section>
 
     <div class="listaStock" id="listaStock">
@@ -126,16 +110,11 @@
             <button class="bbutton" id="btnDescargar">Descargar</button>
             <button class="bbutton" id="btnCerrar">Cerrar</button>
         </div>
-
     </div>
 
     <p class="textoInferior">Ultima actualizacion: 01/08/23 09:53 hs</p>
 
-
-    <footer>
-
-    </footer>
-
+    <footer></footer>
 </body>
 
 </html>
