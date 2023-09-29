@@ -73,7 +73,7 @@ li {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 5px;
 }
 
@@ -126,7 +126,7 @@ li {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -145,7 +145,7 @@ li {
 
 .stockInner {
     width: 30%;
-    height: 100px;
+    height: 120px;
     background-color: var(--secundario);
     border-radius: 5px;
     display: flex;
@@ -221,7 +221,7 @@ li {
 
 th, td {
     border: 1px solid black;
-    padding: 8px;
+    padding: 5px;
     text-align: left;
 }
 
