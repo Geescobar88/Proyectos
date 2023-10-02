@@ -7,10 +7,19 @@ async function cargarDatos() {
   const listadoVto = await vto.json();
 
   generarTotal(dbResponse, listadoResponse, listadoVto);
-
+  menubar();
 }
 
 cargarDatos();
+
+///////////////////////////////////////MENU/////////////////////////////////////////
+
+function menubar() {
+  menu = document.getElementById("menu")
+  menu.addEventListener("click", () => {
+    alert("Esto hará algo en un futuro..")
+  })
+}
 
 //////////////////////////////////GENERANDO TOTAL///////////////////////////////////
 
@@ -39,11 +48,19 @@ function filtrarDatos(total) {
   const datalist = document.getElementById("medicacion");
   const borrar = document.getElementById("borrar")
   const busqueda = document.getElementById("busqueda")
+  const nomArticulo = document.getElementById("nombreArticulo");
+  const codMinisterial = document.getElementById("codMinisterial");
+  const stockDeposito = document.getElementById("stockDeposito");
+
+  const tabla = document.getElementById("tabla");
+
 //--------------------------Filtro por articulos---------------------
   filtroArt.addEventListener("change", () => {
+    borrar.click();
     if (filtroArt.checked) {
       datalist.innerHTML = "";
       entrada.value = "";
+      tabla.innerHTML = "<tr><th>Lote</th><th>Vencimiento</th><th>Cantidad</th></tr>";
       total.forEach((item) => {
         if (item.HABILITADO == "SI") {
           const newOption = document.createElement("option");
@@ -59,9 +76,11 @@ function filtrarDatos(total) {
 //--------------------------Filtro por Codigo ministerial---------------------
 
   filtroCm.addEventListener("change", () => {
+    borrar.click();
     if (filtroCm.checked) {
       datalist.innerHTML = "";
       entrada.value = "";
+      tabla.innerHTML = "<tr><th>Lote</th><th>Vencimiento</th><th>Cantidad</th></tr>";
       total.forEach((item) => {
         if (item.HABILITADO == "SI") {
           const newOption = document.createElement("option");
@@ -78,6 +97,10 @@ function filtrarDatos(total) {
 
   borrar.addEventListener("click", () => {
     entrada.value = "";
+    nomArticulo.textContent = "-----";
+    codMinisterial.textContent = "-----";
+    stockDeposito.textContent = "-----"
+    tabla.innerHTML = "<tr><th>Lote</th><th>Vencimiento</th><th>Cantidad</th></tr>";
   })
 
   busqueda.addEventListener("click", () => {
@@ -91,21 +114,42 @@ function filtrarDatos(total) {
     borrar.click();
   })
 }
-
+ 
 //////////////////////////////////SELECCIONANDO ARTICULO////////////////////////////
 
 function seleccionarArticulo(total, listadoVto) {
-  const datalist = document.getElementById("medicacion");
   const entrada = document.getElementById("entrada");
   const nomArticulo = document.getElementById("nombreArticulo");
   const codMinisterial = document.getElementById("codMinisterial");
   const stockDeposito = document.getElementById("stockDeposito");
+
+  const tabla = document.getElementById("tabla");
   
   entrada.addEventListener('change', () => {
-    const articuloEncontrado = total.find((match) => match.MEDICACION === entrada.value)
+    const articuloEncontrado = total.find((match) => match.MEDICACION === entrada.value || match.CODARTICULO === entrada.value)
     nomArticulo.textContent = articuloEncontrado.MEDICACION
     codMinisterial.textContent = articuloEncontrado.CODARTICULO
     stockDeposito.textContent = articuloEncontrado.STOCKENDEPOSITO
+
+    const filtroArtVto = listadoVto.filter((match) => {
+      return articuloEncontrado.CODARTICULO === match.CODARTICULO
+    })
+
+    tabla.innerHTML = "<tr><th>Lote</th><th>Vencimiento</th><th>Cantidad</th></tr>";
+    filtroArtVto.forEach((articulo) => {
+      const row = tabla.insertRow();
+      const loteCell = row.insertCell(0);
+      const vencimientoCell = row.insertCell(1);
+      const cantidadCell = row.insertCell(2);
+
+      loteCell.innerHTML = articulo.NROLOTE;
+      vencimientoCell.innerHTML = articulo.FECHAVTO;
+      cantidadCell.innerHTML = articulo.STOCKEXISTENTE;
+
+    }
+
+    )
+
   })
 }
 

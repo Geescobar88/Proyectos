@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <span>☰</span>
+        <span id="menu">☰</span>
         <h1 class="titulo">Control de stock</h1>
     </header>
 
@@ -45,11 +45,11 @@
     <section class="datos">
         <div class="Descripcion">
             <span id="nombreArticulo" class="nombreArticulo">
-                <h1>DESCRIPCION</h1>
+                -----
             </span>
 
             <span id="codMinisterial" class="codMinisterial">
-                <h3>#M0000000</h3>
+                -----
             </span>
 
         </div>
@@ -57,71 +57,30 @@
         <div class="stock">
             <div class="stockInner">
                 <span class="inner"> Stock en Deposito </span>
-                <span id="stockDeposito"> 00000 </span>
+                <span id="stockDeposito"> ----- </span>
             </div>
 
             <div class="stockInner">
                 <span class="inner"> Estado </span>
-                <span id="estadoStock"> En stock </span>
+                <span id="estadoStock"> ----- </span>
             </div>
 
             <div class="stockInner">
                 <span class="inner"> Consumo mensual </span>
-                <span id="consumo"> 0000 </span>
+                <span id="consumo"> ----- </span>
             </div>
         </div>
 
         <div class="vto">
             <label>Proximo vencimiento hasta 07/24</label>
 
-            <table class="tabla">
+            <table id="tabla" class="tabla">
                 <tr>
                     <th>Lote</th>
                     <th>Vencimiento</th>
                     <th>Cantidad</th>
                 </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>10/24</td>
-                    <td>3000</td>
-                </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>10/24</td>
-                    <td>3000</td>
-                </tr>
-                <tr>
-                    <td>1234</td>
-                    <td>10/24</td>
-                    <td>3000</td>
-                </tr>
             </table>
-
-
-            <!-- <div class="vtoContainer">
-                <div class="vtoHeaders">
-                    <span>Lote</span>
-                    <span>Vto</span>
-                    <span>Cant</span>
-                </div>
-
-                <div class="vtoRows">
-                    <ul id="vtoItems" class="vtoItems">
-                        <li> <span>Lote</span>
-                            <span>Vto</span>
-                            <span>Cant</span>
-                        </li>
-                        <li> <span>Lote</span>
-                            <span>Vto</span>
-                            <span>Cant</span>
-                        </li>
-                        <li> <span>Lote</span>
-                            <span>Vto</span>
-                            <span>Cant</span>
-                        </li>
-                    </ul>
-                </div>
-            </div> -->
         </div>
     </section>
 
