@@ -11,6 +11,7 @@
     --primario: #c6d4e1;
     --secundario: #ebe7e0;
     --fuerte: #44749d;
+    --complementario: #ba94e6;
     --claro: #ffffff;
     --oscuro: #bdb8ad;
 }
@@ -54,10 +55,10 @@ section, .linea {
 }
 
 .bbutton {
-    border: 2px solid var(--fuerte);
+    border: 2px solid var(--complementario);
     border-radius: 5px;
     padding: 10px;
-    background-color: var(--fuerte);
+    background-color: var(--complementario);
     color: var(--claro);
     font-weight: bolder;   
 }
@@ -137,6 +138,11 @@ li {
     text-align: center;
 }
 
+.nombreArticulo {
+    font-size: larger;
+    font-weight: bold;
+}
+
 .stock {
     display: flex;
     justify-content: space-around;
@@ -213,16 +219,23 @@ li {
     justify-content: space-between;
     border-bottom: 1px solid var(--fuerte);
 }
-
+/*-------Tabla-------*/
 .tabla {
     border-collapse: collapse;
     width: 100%;
 }
 
 th, td {
-    border: 1px solid black;
+    border: 1px solid var(--fuerte);
+    background-color: var(--secundario);
     padding: 5px;
     text-align: left;
+}
+
+th {
+    background-color: var(--fuerte);
+    border-right-color: var(--oscuro) ;
+    color: var(--claro);
 }
 
 

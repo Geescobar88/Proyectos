@@ -51,6 +51,8 @@ function filtrarDatos(total) {
   const nomArticulo = document.getElementById("nombreArticulo");
   const codMinisterial = document.getElementById("codMinisterial");
   const stockDeposito = document.getElementById("stockDeposito");
+  const estadoStock = document.getElementById("estadoStock")
+  const consumo = document.getElementById("consumo")
 
   const tabla = document.getElementById("tabla");
 
@@ -100,6 +102,9 @@ function filtrarDatos(total) {
     nomArticulo.textContent = "-----";
     codMinisterial.textContent = "-----";
     stockDeposito.textContent = "-----"
+    estadoStock.textContent = "-----"
+    estadoStock.style.color ="black"
+    consumo.textContent = "-----"
     tabla.innerHTML = "<tr><th>Lote</th><th>Vencimiento</th><th>Cantidad</th></tr>";
   })
 
@@ -122,14 +127,32 @@ function seleccionarArticulo(total, listadoVto) {
   const nomArticulo = document.getElementById("nombreArticulo");
   const codMinisterial = document.getElementById("codMinisterial");
   const stockDeposito = document.getElementById("stockDeposito");
+  const estadoStock = document.getElementById("estadoStock")
+  const consumo = document.getElementById("consumo")
 
   const tabla = document.getElementById("tabla");
   
   entrada.addEventListener('change', () => {
+
+//--------------------------Filtrar un articulo---------------------
+
     const articuloEncontrado = total.find((match) => match.MEDICACION === entrada.value || match.CODARTICULO === entrada.value)
     nomArticulo.textContent = articuloEncontrado.MEDICACION
     codMinisterial.textContent = articuloEncontrado.CODARTICULO
     stockDeposito.textContent = articuloEncontrado.STOCKENDEPOSITO
+    consumo.textContent = articuloEncontrado.STOCK_MIN
+    if (articuloEncontrado.STOCKENDEPOSITO <= articuloEncontrado.STOCK_MIN) {
+      estadoStock.textContent = "Critico"
+      estadoStock.style.color = "red";
+    } else if (articuloEncontrado.STOCKENDEPOSITO >= articuloEncontrado.STOCK_MIN * 2) {
+      estadoStock.textContent = "En stock"
+      estadoStock.style.color = "green";
+    } else {
+      estadoStock.textContent = "Minimo"
+      estadoStock.style.color = "black";
+    }
+
+//--------------------------Tabla de vencimientos---------------------
 
     const filtroArtVto = listadoVto.filter((match) => {
       return articuloEncontrado.CODARTICULO === match.CODARTICULO
@@ -145,11 +168,7 @@ function seleccionarArticulo(total, listadoVto) {
       loteCell.innerHTML = articulo.NROLOTE;
       vencimientoCell.innerHTML = articulo.FECHAVTO;
       cantidadCell.innerHTML = articulo.STOCKEXISTENTE;
-
-    }
-
-    )
-
+    })
   })
 }
 
