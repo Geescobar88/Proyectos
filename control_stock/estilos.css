@@ -10,8 +10,8 @@
     --fondoOscuro: #0A0A0A;
     --primario: #c6d4e1;
     --secundario: #ebe7e0;
+    --terciario: #94a8e6;
     --fuerte: #44749d;
-    --complementario: #ba94e6;
     --claro: #ffffff;
     --oscuro: #bdb8ad;
 }
@@ -24,6 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 
 /* ----------------------------------HEADER---------------------------------- */
@@ -55,16 +56,16 @@ section, .linea {
 }
 
 .bbutton {
-    border: 2px solid var(--complementario);
+    border: 2px solid var(--terciario);
     border-radius: 5px;
     padding: 10px;
-    background-color: var(--complementario);
-    color: var(--claro);
+    background-color: var(--terciario);
+    color: var(--fondoOscuro);
     font-weight: bolder;   
 }
 
-li {
-    list-style-type: none;
+.bbutton:hover {
+    background-color: var(--fuerte);
 }
 
 /* ----------------------------------FILTRO---------------------------------- */
@@ -95,6 +96,11 @@ li {
     padding: 10px;
     background-color: var(--claro);
     font-weight: bolder;
+}
+
+.filtroCheck:hover {
+    background-color: var(--terciario);
+    color: var(--claro);
 }
 
 .inputR:checked+.filtroCheck {
@@ -163,7 +169,6 @@ li {
 
 .inner {
     font-weight: bold;
-
 }
 
 /* ----------------------------------VENCIMIENTOS---------------------------------- */
@@ -174,50 +179,6 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.vtoContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #0A0A0A;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.vtoHeaders {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0px;
-}
-
-.vtoRows {
-    display: flex;
-    width: 100%;
-    min-height: 200px;
-    background-color: var(--claro);
-    color: #0A0A0A;
-    justify-content: center;
-}
-
-.vtoItems {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-}
-
-.vtoItems>ul {
-    display: flex;
-}
-
-.vtoItems>li {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--fuerte);
 }
 /*-------Tabla-------*/
 .tabla {
@@ -242,7 +203,9 @@ th {
 /* ----------------------------------LISTAS---------------------------------- */
 
 .listaStock {
-    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: var(--claro);
 }
 
 /*  *******************************RESPONSIVE*******************************  */
