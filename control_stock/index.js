@@ -8,6 +8,7 @@ async function cargarDatos() {
 
   generarTotal(dbResponse, listadoResponse, listadoVto);
   menubar();
+  crearListados();
 }
 
 cargarDatos();
@@ -172,3 +173,47 @@ function seleccionarArticulo(total, listadoVto) {
   })
 }
 
+/////////////////////////////////////////LISTADOS///////////////////////////////////
+
+function crearListados() {
+const btnListadosAbrir = document.getElementById("btnListados")
+const btnListadosCerrar = document.getElementById("btnCerrar")
+const ventanaListados = document.getElementById("listados")
+const seleccionFiltros = document.getElementById("seleccionFiltros")
+const filtrosStock = document.getElementById("filtrosStock")
+const filtrosServicio = document.getElementById("filtrosServicio")
+const filtrosVencimiento = document.getElementById("filtrosVencimiento")
+const filtrosVencimientoY = document.getElementById("filtrosVencimientoY")
+const btnSeleccionar = document.getElementById("btnSeleccionar")
+// Posiciones a ocultar  => [0] Stock, [1] Servicio, [2] Vencimiento
+let ocultar = [0,0,0]
+
+//--------------------------Abrir/Cerrar ventana Listados---------------------
+btnListadosAbrir.addEventListener("click", () => {
+  ventanaListados.style.display = "inline"
+})
+
+btnListadosCerrar.addEventListener("click", () => {
+  ventanaListados.style.display = "none"
+})
+
+//------------------------------Mostrar/Ocultar Selects-------------------------
+
+
+
+seleccionFiltros.addEventListener("change", (event) => {
+// 1: Stock, 2: Servicio, 3:Vencimiento
+  switch (event.target.selectedIndex) {
+    case 1:
+      filtrosStock.style.display = "inline"
+    break;
+    case 2:
+      console.log("Servicio")
+    break;
+    case 3:
+      console.log("Vencimiento")
+    break;
+  }
+})
+
+}

@@ -60,7 +60,7 @@ section, .linea {
     border-radius: 5px;
     padding: 10px;
     background-color: var(--terciario);
-    color: var(--fondoOscuro);
+    color: var(--claro);
     font-weight: bolder;   
 }
 
@@ -68,6 +68,12 @@ section, .linea {
     background-color: var(--fuerte);
 }
 
+select {
+    border: none;
+    border-radius: 5px;
+    height: 48px;
+    width: 100%;
+}
 /* ----------------------------------FILTRO---------------------------------- */
 
 .filtro {
@@ -96,11 +102,6 @@ section, .linea {
     padding: 10px;
     background-color: var(--claro);
     font-weight: bolder;
-}
-
-.filtroCheck:hover {
-    background-color: var(--terciario);
-    color: var(--claro);
 }
 
 .inputR:checked+.filtroCheck {
@@ -202,10 +203,39 @@ th {
 
 /* ----------------------------------LISTAS---------------------------------- */
 
-.listaStock {
+.listados {
     position: absolute;
     width: 100%;
-    background-color: var(--claro);
+    height: 100vh;
+    background-color: var(--primario);
+
+}
+
+.listadosContainer {
+    padding: 5%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.listadosContainer>.titulo {
+ margin-bottom: 20px;
+}
+
+.botoneraFiltros {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.botoneraLista {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filtrosOcultos {
+    display: none;
 }
 
 /*  *******************************RESPONSIVE*******************************  */

@@ -30,7 +30,7 @@
                 <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial" />
                 <label for="fCodigoMin" class="filtroCheck" id="filtroCheckCm">Codigo</label>
             </div>
-            <span class="bbutton">Listados</span>
+            <span class="bbutton" id="btnListados">Listados</span>
         </div>
     </section>
 
@@ -85,14 +85,72 @@
     </section>
 
     <div class="listados" id="listados">
-        <div class="divLista">
-            <ul class="lista" id="lista"></ul>
+        <h1 class="titulo">Listados</h1>
+        <div class="listadosContainer">
+            <div class="botoneraFiltros">
+                <select name="tipoFiltros" id="seleccionFiltros">
+                    <option value="" selected disabled>Filtrar por:</option>
+                    <option value="Stock" id="optionselect">Stock</option>
+                    <option value="Servicio">Servicio</option>
+                    <option value="vencimiento">Vencimiento</option>
+                </select>
+
+                <select name="filtrosStock" id="filtrosStock" class="filtrosOcultos">
+                    <option value="" selected disabled>Seleccionar listado:</option>
+                    <option value="Lista completa" id="lCompleta">
+                        Lista Completa
+                    </option>
+                    <option value="En Stock minimo">En Stock mínimo</option>
+                    <option value="Agotados">Agotados</option>
+                </select>
+
+                <select name="filtrosServicio" id="filtrosServicio" class="filtrosOcultos">
+                    <option value="" selected disabled>Seleccionar Servicio</option>
+                    <option value="Esterilizacion">Esterilización</option>
+                    <option value="Alimentacion">Alimentación</option>
+                    <option value="Sueros">Sueros</option>
+                </select>
+
+                <select name="filtrosVencimiento" id="filtrosVencimiento" class="filtrosOcultos">
+                    <option value="31/1">Enero</option>
+                    <option value="29/2">Febrero</option>
+                    <option value="31/3">Marzo</option>
+                    <option value="30/4">Abril</option>
+                    <option value="31/5">Mayo</option>
+                    <option value="30/6">Junio</option>
+                    <option value="31/7">Julio</option>
+                    <option value="31/8">Agosto</option>
+                    <option value="30/9">Septiembre</option>
+                    <option value="31/10">Octubre</option>
+                    <option value="30/11">Noviembre</option>
+                    <option value="31/12">Diciembre</option>
+                </select>
+
+                <select name="filtrosVencimientoY" id="filtrosVencimientoY" class="filtrosOcultos">
+                    <option value="/2023">2023</option>
+                    <option value="/2024">2024</option>
+                    <option value="/2025">2025</option>
+                </select>
+                <!-- <input type="checkbox" id="filtroTodos" disabled /> -->
+                <!-- <label for="filtroTodos" id="lblfiltroTodos" disabled>Incluir anteriores.</label> -->
+                <button class="bbutton filtrosOcultos" id="btnSeleccionar">Seleccionar</button>
+            </div>
+
+            <table id="tablaListados" class="tabla">
+                <tr>
+                    <th>Lote</th>
+                    <th>Medicacion</th>
+                    <th>Cantidad</th>
+                </tr>
+            </table>
+
+            <div class="botoneraLista">
+                <button class="bbutton" id="btnDescargar">Descargar</button>
+                <button class="bbutton" id="btnCerrar">Cerrar</button>
+            </div>
+
         </div>
 
-        <div class="botoneraLista">
-            <button class="bbutton" id="btnDescargar">Descargar</button>
-            <button class="bbutton" id="btnCerrar">Cerrar</button>
-        </div>
     </div>
 
     <p class="textoInferior">Ultima actualizacion: 01/08/23 09:53 hs</p>
