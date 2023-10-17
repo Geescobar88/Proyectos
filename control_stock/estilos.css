@@ -23,9 +23,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    position: relative;
 }
+
+
 
 /* ----------------------------------HEADER---------------------------------- */
 header {
@@ -55,17 +55,30 @@ section, .linea {
     width: 90%;
 }
 
+.container {
+    height: 100%;
+    max-height: 1080px;
+    width: 100%;
+    max-width: 1400px;
+    background-color: VAR(--primario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
 .bbutton {
-    border: 2px solid var(--terciario);
+    border: 2px solid var(--fuerte);
     border-radius: 5px;
     padding: 10px;
-    background-color: var(--terciario);
+    background-color: var(--fuerte);
     color: var(--claro);
     font-weight: bolder;   
 }
 
 .bbutton:hover {
-    background-color: var(--fuerte);
+    background-color: var(--terciario);
 }
 
 select {
@@ -74,6 +87,26 @@ select {
     height: 48px;
     width: 100%;
 }
+
+/*-------Tabla-------*/
+.tabla {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--fuerte);
+    background-color: var(--secundario);
+    padding: 5px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--fuerte);
+    border-right-color: var(--oscuro) ;
+    color: var(--claro);
+}
+
 /* ----------------------------------FILTRO---------------------------------- */
 
 .filtro {
@@ -97,7 +130,8 @@ select {
 }
 
 .filtroCheck {
-    border: 2px solid var(--fuerte);
+    border: 2px solid var(--terciario);
+    color: var(--terciario);
     border-radius: 5px;
     padding: 10px;
     background-color: var(--claro);
@@ -106,7 +140,7 @@ select {
 
 .inputR:checked+.filtroCheck {
     color: var(--claro);
-    background-color: var(--fuerte);
+    background-color: var(--terciario);
 }
 
 /* ----------------------------------BUSQUEDA---------------------------------- */
@@ -181,39 +215,22 @@ select {
     flex-direction: column;
     align-items: center;
 }
-/*-------Tabla-------*/
-.tabla {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    border: 1px solid var(--fuerte);
-    background-color: var(--secundario);
-    padding: 5px;
-    text-align: left;
-}
-
-th {
-    background-color: var(--fuerte);
-    border-right-color: var(--oscuro) ;
-    color: var(--claro);
-}
-
 
 /* ----------------------------------LISTAS---------------------------------- */
 
 .listados {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    max-width: 1200px;
+    height: 90%;
+    border: 2px solid var(--fuerte);
+    border-radius: 5px;
     background-color: var(--primario);
-
 }
 
 .listadosContainer {
-    padding: 5%;
-    min-height: 300px;
+    padding: 0 5% ;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -227,6 +244,7 @@ th {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 20px;
 }
 
 .botoneraLista {
@@ -236,6 +254,12 @@ th {
 
 .filtrosOcultos {
     display: none;
+}
+
+.tablaContainer {
+    height: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 /*  *******************************RESPONSIVE*******************************  */

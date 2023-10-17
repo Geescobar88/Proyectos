@@ -19,143 +19,149 @@
         <h1 class="titulo">Control de stock</h1>
     </header>
 
-    <section class="filtro">
-        <label class="tituloBuscar">Buscar articulo por :</label>
-        <div class="radioBtn">
-            <div>
-                <input type="radio" name="filtro" id="fNombre" class="inputR" value="Articulos" />
-                <label for="fNombre" class="filtroCheck" id="filtroCheckArt">Nombre</label>
+    <div class="container">
+
+        <section class="filtro">
+            <label class="tituloBuscar">Buscar articulo por :</label>
+            <div class="radioBtn">
+                <div>
+                    <input type="radio" name="filtro" id="fNombre" class="inputR" value="Articulos" />
+                    <label for="fNombre" class="filtroCheck" id="filtroCheckArt">Nombre</label>
+                </div>
+                <div>
+                    <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial" />
+                    <label for="fCodigoMin" class="filtroCheck" id="filtroCheckCm">Codigo</label>
+                </div>
+                <span class="bbutton" id="btnListados">Listados</span>
             </div>
-            <div>
-                <input type="radio" name="filtro" id="fCodigoMin" class="inputR" value="Codigo Ministerial" />
-                <label for="fCodigoMin" class="filtroCheck" id="filtroCheckCm">Codigo</label>
+        </section>
+
+        <section class="busqueda" id="busqueda">
+            <input type="text" list="medicacion" id="entrada" class="entrada" disabled />
+            <datalist id="medicacion"></datalist>
+            <button class="bbutton" id="borrar">Borrar</button>
+        </section>
+
+        <hr class="linea" />
+
+        <section class="datos">
+            <div class="Descripcion">
+                <span id="nombreArticulo" class="nombreArticulo">
+                    -----
+                </span>
+
+                <span id="codMinisterial" class="codMinisterial">
+                    -----
+                </span>
+
             </div>
-            <span class="bbutton" id="btnListados">Listados</span>
+
+            <div class="stock">
+                <div class="stockInner">
+                    <span class="inner"> Stock en Deposito </span>
+                    <span id="stockDeposito"> ----- </span>
+                </div>
+
+                <div class="stockInner">
+                    <span class="inner"> Estado </span>
+                    <span id="estadoStock"> ----- </span>
+                </div>
+
+                <div class="stockInner">
+                    <span class="inner"> Consumo mensual </span>
+                    <span id="consumo"> ----- </span>
+                </div>
+            </div>
+
+            <div class="vto">
+                <label>Proximo vencimiento hasta 07/24</label>
+
+                <table id="tabla" class="tabla">
+                    <tr>
+                        <th>Lote</th>
+                        <th>Vencimiento</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <div class="listados" id="listados">
+            <h1 class="titulo">Listados</h1>
+            <div class="listadosContainer">
+                <div class="botoneraFiltros">
+                    <select name="tipoFiltros" id="seleccionFiltros">
+                        <option value="" selected disabled>Filtrar por:</option>
+                        <option value="Stock" id="optionselect">Stock</option>
+                        <option value="Servicio">Sector</option>
+                        <option value="vencimiento">Vencimiento</option>
+                    </select>
+
+                    <select name="filtrosStock" id="filtrosStock" class="filtrosOcultos">
+                        <option value="" selected disabled>Seleccionar listado:</option>
+                        <option value="Lista completa" id="lCompleta">Lista Completa</option>
+                        <option value="En Stock minimo">En Stock mínimo</option>
+                        <option value="Agotados">Agotados</option>
+                    </select>
+
+                    <select name="filtrosSector" id="filtrosSector" class="filtrosOcultos">
+                        <option value="" selected disabled>Seleccionar Sector</option>
+                        <option value="Esterilizacion">Esterilización</option>
+                        <option value="Alimentacion">Alimentación</option>
+                        <option value="Sueros">Sueros</option>
+                        <option value="Programas">Programas</option>
+                    </select>
+                    <div class="filtrosVencimiento">
+                        <select name="filtrosVencimientoM" id="filtrosVencimientoM" class="filtrosOcultos">
+                            <option value="31/1">Enero</option>
+                            <option value="29/2">Febrero</option>
+                            <option value="31/3">Marzo</option>
+                            <option value="30/4">Abril</option>
+                            <option value="31/5">Mayo</option>
+                            <option value="30/6">Junio</option>
+                            <option value="31/7">Julio</option>
+                            <option value="31/8">Agosto</option>
+                            <option value="30/9">Septiembre</option>
+                            <option value="31/10">Octubre</option>
+                            <option value="30/11">Noviembre</option>
+                            <option value="31/12">Diciembre</option>
+                        </select>
+
+                        <select name="filtrosVencimientoY" id="filtrosVencimientoY" class="filtrosOcultos">
+                            <option value="/2023">2023</option>
+                            <option value="/2024">2024</option>
+                            <option value="/2025">2025</option>
+                        </select>
+                    </div>
+                    <!-- <input type="checkbox" id="filtroTodos" disabled /> -->
+                    <!-- <label for="filtroTodos" id="lblfiltroTodos" disabled>Incluir anteriores.</label> -->
+                    <button class="bbutton filtrosOcultos" id="btnSeleccionar">Seleccionar</button>
+                </div>
+
+                <div class="tablaContainer">
+                    <table id="tablaListados" class="tabla">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Medicacion</th>
+                            <th>Estado</th>
+                            <th>Stock</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="botoneraLista">
+                    <button class="bbutton" id="btnDescargar">Descargar</button>
+                    <button class="bbutton" id="btnCerrar">Cerrar</button>
+                </div>
+
+            </div>
+
         </div>
-    </section>
 
-    <section class="busqueda" id="busqueda">
-        <input type="text" list="medicacion" id="entrada" class="entrada" disabled />
-        <datalist id="medicacion"></datalist>
-        <button class="bbutton" id="borrar">Borrar</button>
-    </section>
+        <p class="textoInferior">Ultima actualizacion: 01/08/23 09:53 hs</p>
 
-    <hr class="linea" />
-
-    <section class="datos">
-        <div class="Descripcion">
-            <span id="nombreArticulo" class="nombreArticulo">
-                -----
-            </span>
-
-            <span id="codMinisterial" class="codMinisterial">
-                -----
-            </span>
-
-        </div>
-
-        <div class="stock">
-            <div class="stockInner">
-                <span class="inner"> Stock en Deposito </span>
-                <span id="stockDeposito"> ----- </span>
-            </div>
-
-            <div class="stockInner">
-                <span class="inner"> Estado </span>
-                <span id="estadoStock"> ----- </span>
-            </div>
-
-            <div class="stockInner">
-                <span class="inner"> Consumo mensual </span>
-                <span id="consumo"> ----- </span>
-            </div>
-        </div>
-
-        <div class="vto">
-            <label>Proximo vencimiento hasta 07/24</label>
-
-            <table id="tabla" class="tabla">
-                <tr>
-                    <th>Lote</th>
-                    <th>Vencimiento</th>
-                    <th>Cantidad</th>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-    <div class="listados" id="listados">
-        <h1 class="titulo">Listados</h1>
-        <div class="listadosContainer">
-            <div class="botoneraFiltros">
-                <select name="tipoFiltros" id="seleccionFiltros">
-                    <option value="" selected disabled>Filtrar por:</option>
-                    <option value="Stock" id="optionselect">Stock</option>
-                    <option value="Servicio">Servicio</option>
-                    <option value="vencimiento">Vencimiento</option>
-                </select>
-
-                <select name="filtrosStock" id="filtrosStock" class="filtrosOcultos">
-                    <option value="" selected disabled>Seleccionar listado:</option>
-                    <option value="Lista completa" id="lCompleta">
-                        Lista Completa
-                    </option>
-                    <option value="En Stock minimo">En Stock mínimo</option>
-                    <option value="Agotados">Agotados</option>
-                </select>
-
-                <select name="filtrosServicio" id="filtrosServicio" class="filtrosOcultos">
-                    <option value="" selected disabled>Seleccionar Servicio</option>
-                    <option value="Esterilizacion">Esterilización</option>
-                    <option value="Alimentacion">Alimentación</option>
-                    <option value="Sueros">Sueros</option>
-                </select>
-
-                <select name="filtrosVencimiento" id="filtrosVencimiento" class="filtrosOcultos">
-                    <option value="31/1">Enero</option>
-                    <option value="29/2">Febrero</option>
-                    <option value="31/3">Marzo</option>
-                    <option value="30/4">Abril</option>
-                    <option value="31/5">Mayo</option>
-                    <option value="30/6">Junio</option>
-                    <option value="31/7">Julio</option>
-                    <option value="31/8">Agosto</option>
-                    <option value="30/9">Septiembre</option>
-                    <option value="31/10">Octubre</option>
-                    <option value="30/11">Noviembre</option>
-                    <option value="31/12">Diciembre</option>
-                </select>
-
-                <select name="filtrosVencimientoY" id="filtrosVencimientoY" class="filtrosOcultos">
-                    <option value="/2023">2023</option>
-                    <option value="/2024">2024</option>
-                    <option value="/2025">2025</option>
-                </select>
-                <!-- <input type="checkbox" id="filtroTodos" disabled /> -->
-                <!-- <label for="filtroTodos" id="lblfiltroTodos" disabled>Incluir anteriores.</label> -->
-                <button class="bbutton filtrosOcultos" id="btnSeleccionar">Seleccionar</button>
-            </div>
-
-            <table id="tablaListados" class="tabla">
-                <tr>
-                    <th>Lote</th>
-                    <th>Medicacion</th>
-                    <th>Cantidad</th>
-                </tr>
-            </table>
-
-            <div class="botoneraLista">
-                <button class="bbutton" id="btnDescargar">Descargar</button>
-                <button class="bbutton" id="btnCerrar">Cerrar</button>
-            </div>
-
-        </div>
-
+        <footer></footer>
     </div>
-
-    <p class="textoInferior">Ultima actualizacion: 01/08/23 09:53 hs</p>
-
-    <footer></footer>
 </body>
 
 </html>
