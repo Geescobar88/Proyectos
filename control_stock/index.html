@@ -111,27 +111,57 @@
                         <option value="Sueros">Sueros</option>
                         <option value="Programas">Programas</option>
                     </select>
-                    <div class="filtrosVencimiento">
-                        <select name="filtrosVencimientoM" id="filtrosVencimientoM" class="filtrosOcultos">
-                            <option value="31/1">Enero</option>
-                            <option value="29/2">Febrero</option>
-                            <option value="31/3">Marzo</option>
-                            <option value="30/4">Abril</option>
-                            <option value="31/5">Mayo</option>
-                            <option value="30/6">Junio</option>
-                            <option value="31/7">Julio</option>
-                            <option value="31/8">Agosto</option>
-                            <option value="30/9">Septiembre</option>
-                            <option value="31/10">Octubre</option>
-                            <option value="30/11">Noviembre</option>
-                            <option value="31/12">Diciembre</option>
+                    <div class="filtrosVencimientoContainer">
+                        <select name="filtrosVencimiento" id="filtrosVencimiento" class="filtrosOcultos">
+                            <option value="" selected disabled>Seleccionar opcion</option>
+                            <option value="Listado completo">Listado completo</option>
+                            <option value="Por mes">Por mes</option>
+                            <option value="Entre fechas">Entre fechas</option>
                         </select>
-
-                        <select name="filtrosVencimientoY" id="filtrosVencimientoY" class="filtrosOcultos">
-                            <option value="/2023">2023</option>
-                            <option value="/2024">2024</option>
-                            <option value="/2025">2025</option>
-                        </select>
+                        <div class="filtrosFechas">
+                            <select name="filtrosVencimientoM" id="filtrosVencimientoM" class="filtrosOcultos">
+                                <option value="31/1">Enero</option>
+                                <option value="29/2">Febrero</option>
+                                <option value="31/3">Marzo</option>
+                                <option value="30/4">Abril</option>
+                                <option value="31/5">Mayo</option>
+                                <option value="30/6">Junio</option>
+                                <option value="31/7">Julio</option>
+                                <option value="31/8">Agosto</option>
+                                <option value="30/9">Septiembre</option>
+                                <option value="31/10">Octubre</option>
+                                <option value="30/11">Noviembre</option>
+                                <option value="31/12">Diciembre</option>
+                            </select>
+    
+                            <select name="filtrosVencimientoY" id="filtrosVencimientoY" class="filtrosOcultos">
+                                <option value="/2023">2023</option>
+                                <option value="/2024">2024</option>
+                                <option value="/2025">2025</option>
+                            </select>
+                                
+                            <select name="filtrosVencimientoEFM" id="filtrosVencimientoEFM" class="filtrosOcultos">
+                                <option value="31/1">Enero</option>
+                                <option value="29/2">Febrero</option>
+                                <option value="31/3">Marzo</option>
+                                <option value="30/4">Abril</option>
+                                <option value="31/5">Mayo</option>
+                                <option value="30/6">Junio</option>
+                                <option value="31/7">Julio</option>
+                                <option value="31/8">Agosto</option>
+                                <option value="30/9">Septiembre</option>
+                                <option value="31/10">Octubre</option>
+                                <option value="30/11">Noviembre</option>
+                                <option value="31/12">Diciembre</option>
+                            </select>
+    
+                            <select name="filtrosVencimientoEFY" id="filtrosVencimientoEFY" class="filtrosOcultos">
+                                <option value="/2023">2023</option>
+                                <option value="/2024">2024</option>
+                                <option value="/2025">2025</option>
+                            </select>
+                        </div>
+                        
                     </div>
                     <!-- <input type="checkbox" id="filtroTodos" disabled /> -->
                     <!-- <label for="filtroTodos" id="lblfiltroTodos" disabled>Incluir anteriores.</label> -->

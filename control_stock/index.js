@@ -183,8 +183,11 @@ const ventanaListados = document.getElementById("listados")
 const seleccionFiltros = document.getElementById("seleccionFiltros")
 const filtrosStock = document.getElementById("filtrosStock")
 const filtrosSector = document.getElementById("filtrosSector")
+const filtrosVencimiento = document.getElementById("filtrosVencimiento")
 const filtrosVencimientoM = document.getElementById("filtrosVencimientoM")
 const filtrosVencimientoY = document.getElementById("filtrosVencimientoY")
+const filtrosVencimientoEFM = document.getElementById("filtrosVencimientoEFM")
+const filtrosVencimientoEFY = document.getElementById("filtrosVencimientoEFY")
 const btnSeleccionar = document.getElementById("btnSeleccionar")
 const tablaListados = document.getElementById("tablaListados")
 
@@ -208,26 +211,34 @@ seleccionFiltros.addEventListener("change", (event) => {
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       filtrosStock.style.display = "inline"
       filtrosSector.style.display = "none"
+      filtrosVencimiento.style.display = "none"
       filtrosVencimientoM.style.display = "none"
       filtrosVencimientoY.style.display = "none"
+      filtrosVencimientoEFM.style.display = "none"
+      filtrosVencimientoEFY.style.display = "none"
       btnSeleccionar.style.display = "none"
     break;
     case 2:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       filtrosStock.style.display = "none"
       filtrosSector.style.display = "inline"
+      filtrosVencimiento.style.display = "none"
       filtrosVencimientoM.style.display = "none"
       filtrosVencimientoY.style.display = "none"
+      filtrosVencimientoEFM.style.display = "none"
+      filtrosVencimientoEFY.style.display = "none"
       btnSeleccionar.style.display = "none"
     break;
     case 3:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       filtrosStock.style.display = "none"
       filtrosSector.style.display = "none"
-      filtrosVencimientoM.style.display = "inline"
-      filtrosVencimientoY.style.display = "inline"
+      filtrosVencimiento.style.display = "inline"
+      filtrosVencimientoM.style.display = "none"
+      filtrosVencimientoY.style.display = "none"
+      filtrosVencimientoEFM.style.display = "none"
+      filtrosVencimientoEFY.style.display = "none"
       btnSeleccionar.style.display = "inline"
-
     break;
   }
 
@@ -349,6 +360,23 @@ filtrosSector.addEventListener("change", (event) => {
         alert("Proximamente..")
     break;
   
+  }
+})
+
+filtrosVencimiento.addEventListener("change", (event) => {
+  // 1:Lista completa, 2:Mes, 3:Entre fechas
+  switch (event.target.selectedIndex) {
+    case 1:
+      console.log("1")
+    break;
+
+    case 2:
+      console.log("2")
+    break;
+
+    case 3:
+      console.log("3")
+    break;
   }
 })
 }
