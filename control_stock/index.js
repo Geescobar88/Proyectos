@@ -38,7 +38,7 @@ function generarTotal(dbResponse, listadoResponse, listadoVto) {
 
   filtrarDatos(total);
   seleccionarArticulo(total, listadoVto)
-  crearListados(total);
+  crearListados(total, listadoVto);
 }
 
 ///////////////////////////////////FILTRANDO DATOS//////////////////////////////////
@@ -176,7 +176,7 @@ function seleccionarArticulo(total, listadoVto) {
 
 /////////////////////////////////////////LISTADOS///////////////////////////////////
 
-function crearListados(total) {
+function crearListados(total, listadoVto) {
 const btnListadosAbrir = document.getElementById("btnListados")
 const btnListadosCerrar = document.getElementById("btnCerrar")
 const ventanaListados = document.getElementById("listados")
@@ -230,7 +230,7 @@ seleccionFiltros.addEventListener("change", (event) => {
       btnSeleccionar.style.display = "none"
     break;
     case 3:
-      tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
+      tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
       filtrosStock.style.display = "none"
       filtrosSector.style.display = "none"
       filtrosVencimiento.style.display = "inline"
@@ -238,7 +238,7 @@ seleccionFiltros.addEventListener("change", (event) => {
       filtrosVencimientoY.style.display = "none"
       filtrosVencimientoEFM.style.display = "none"
       filtrosVencimientoEFY.style.display = "none"
-      btnSeleccionar.style.display = "inline"
+      btnSeleccionar.style.display = "none"
     break;
   }
 
@@ -367,15 +367,66 @@ filtrosVencimiento.addEventListener("change", (event) => {
   // 1:Lista completa, 2:Mes, 3:Entre fechas
   switch (event.target.selectedIndex) {
     case 1:
-      console.log("1")
+      tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
+      btnSeleccionar.style.display = "none"
+      filtrosVencimientoM.style.display = "none"
+      filtrosVencimientoY.style.display = "none"
+      listadoVto.forEach((articulo) => {
+        const row = tablaListados.insertRow();
+        const codigoCell = row.insertCell(0);
+        const medicacionCell = row.insertCell(1);
+        const loteCell = row.insertCell(2);
+        const vtoCell = row.insertCell(3);
+        const cantidadCell = row.insertCell(4);
+
+        codigoCell.innerHTML = articulo.CODARTICULO;
+        medicacionCell.innerHTML = articulo.NOMBREGENERICO;
+        loteCell.innerHTML = articulo.NROLOTE
+        vtoCell.innerHTML = articulo.FECHAVTO
+        cantidadCell.innerHTML = articulo.STOCKEXISTENTE
+      })
     break;
 
     case 2:
-      console.log("2")
+      tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
+      filtrosVencimientoM.style.display = "inline"
+      filtrosVencimientoY.style.display = "inline"
+      filtrosVencimientoEFM.style.display = "none"
+      filtrosVencimientoEFY.style.display = "none"
+      btnSeleccionar.style.display = "inline"
+
+      btnSeleccionar.addEventListener('click', () => {
+        tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
+        const fechaBtn = filtrosVencimientoM.value + filtrosVencimientoY.value
+        const fechaElegida = listadoVto.filter((match) => {
+          return match.FECHAVTO === fechaBtn
+        })
+        fechaElegida.forEach((articulo) => {
+          const row = tablaListados.insertRow();
+        const codigoCell = row.insertCell(0);
+        const medicacionCell = row.insertCell(1);
+        const loteCell = row.insertCell(2);
+        const vtoCell = row.insertCell(3);
+        const cantidadCell = row.insertCell(4);
+
+        codigoCell.innerHTML = articulo.CODARTICULO;
+        medicacionCell.innerHTML = articulo.NOMBREGENERICO;
+        loteCell.innerHTML = articulo.NROLOTE
+        vtoCell.innerHTML = articulo.FECHAVTO
+        cantidadCell.innerHTML = articulo.STOCKEXISTENTE
+
+        })
+        
+      })
     break;
 
     case 3:
-      console.log("3")
+      tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
+      filtrosVencimientoM.style.display = "inline"
+      filtrosVencimientoY.style.display = "inline"
+      filtrosVencimientoEFM.style.display = "inline"
+      filtrosVencimientoEFY.style.display = "inline"
+      btnSeleccionar.style.display = "inline"
     break;
   }
 })
