@@ -205,8 +205,8 @@ btnListadosCerrar.addEventListener("click", () => {
 
 
 seleccionFiltros.addEventListener("change", (event) => {
-// 1: Stock, 2: Servicio, 3:Vencimiento
   switch (event.target.selectedIndex) {
+    //Stock
     case 1:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       filtrosStock.style.display = "inline"
@@ -218,6 +218,7 @@ seleccionFiltros.addEventListener("change", (event) => {
       filtrosVencimientoEFY.style.display = "none"
       btnSeleccionar.style.display = "none"
     break;
+    //Servicio
     case 2:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       filtrosStock.style.display = "none"
@@ -229,6 +230,7 @@ seleccionFiltros.addEventListener("change", (event) => {
       filtrosVencimientoEFY.style.display = "none"
       btnSeleccionar.style.display = "none"
     break;
+    //Vencimiento
     case 3:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
       filtrosStock.style.display = "none"
@@ -245,8 +247,8 @@ seleccionFiltros.addEventListener("change", (event) => {
 })
 
 filtrosStock.addEventListener("change", (event) => {
-  // 1: Listado Completo, 2: Stock critico, 3: Agotado
   switch (event.target.selectedIndex) {
+    //Listado Completo
     case 1:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -259,11 +261,21 @@ filtrosStock.addEventListener("change", (event) => {
 
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
-        estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
     break;
+    //Stock Critico
     case 2:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -276,11 +288,21 @@ filtrosStock.addEventListener("change", (event) => {
         
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
-        estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
     break;
+    //Agotado
     case 3:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -293,7 +315,16 @@ filtrosStock.addEventListener("change", (event) => {
         
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
-        estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
@@ -302,8 +333,8 @@ filtrosStock.addEventListener("change", (event) => {
 })
 
 filtrosSector.addEventListener("change", (event) => {
-  // 1:Esterilizacion, 2:Alimentacion , 3:Sueros , 4:Programas 
   switch (event.target.selectedIndex) {
+    //Esterilizacion
     case 1:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -317,10 +348,21 @@ filtrosSector.addEventListener("change", (event) => {
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
         estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
     break;
+    //Alimentacion
     case 2:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -334,10 +376,21 @@ filtrosSector.addEventListener("change", (event) => {
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
         estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
     break;
+    //Sueros
     case 3:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
       total.forEach((articulo) => {
@@ -351,10 +404,21 @@ filtrosSector.addEventListener("change", (event) => {
         codigoCell.innerHTML = articulo.CODARTICULO;
         medicacionCell.innerHTML = articulo.MEDICACION;
         estadoCell.innerHTML = "-----";
+        if (articulo.STOCKENDEPOSITO == 0) {
+          estadoCell.innerHTML = "Agotado";
+          estadoCell.style.color = "black"
+        } else if (articulo.STOCKENDEPOSITO >= articulo.STOCK_MIN * 2) {
+          estadoCell.innerHTML = "Normal";
+          estadoCell.style.color = "green"
+        } else if (articulo.STOCKENDEPOSITO <= articulo.STOCK_MIN){
+          estadoCell.innerHTML = "Critico";
+          estadoCell.style.color = "red"
+        }
         stockCell.innerHTML = articulo.STOCKENDEPOSITO
       }
       })
     break;
+    //Programas
     case 4:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Estado</th><th>Stock</th></tr>";
         alert("Proximamente..")
@@ -364,8 +428,8 @@ filtrosSector.addEventListener("change", (event) => {
 })
 
 filtrosVencimiento.addEventListener("change", (event) => {
-  // 1:Lista completa, 2:Mes, 3:Entre fechas
   switch (event.target.selectedIndex) {
+    //Lista completa
     case 1:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
       btnSeleccionar.style.display = "none"
@@ -386,7 +450,7 @@ filtrosVencimiento.addEventListener("change", (event) => {
         cantidadCell.innerHTML = articulo.STOCKEXISTENTE
       })
     break;
-
+      //Mes
     case 2:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
       filtrosVencimientoM.style.display = "inline"
@@ -414,12 +478,10 @@ filtrosVencimiento.addEventListener("change", (event) => {
         loteCell.innerHTML = articulo.NROLOTE
         vtoCell.innerHTML = articulo.FECHAVTO
         cantidadCell.innerHTML = articulo.STOCKEXISTENTE
-
         })
-        
       })
     break;
-
+      //Entre fechas
     case 3:
       tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
       filtrosVencimientoM.style.display = "inline"

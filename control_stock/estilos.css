@@ -219,6 +219,7 @@ th {
 /* ----------------------------------LISTAS---------------------------------- */
 
 .listados {
+    display: none;
     position: absolute;
     width: 100%;
     max-width: 1200px;
@@ -271,6 +272,7 @@ th {
     height: 100%;
     max-height: 500px;
     overflow-y: scroll;
+    border: 1px solid var(--fuerte);
 }
 
 /*  *******************************RESPONSIVE*******************************  */
