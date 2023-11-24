@@ -139,9 +139,13 @@ function seleccionarArticulo(total, listadoVto) {
 //--------------------------Filtrar un articulo---------------------
 
     const articuloEncontrado = total.find((match) => match.MEDICACION === entrada.value || match.CODARTICULO === entrada.value)
-    nomArticulo.textContent = articuloEncontrado.MEDICACION
+    nomArticulo.textContent = articuloEncontrado.MEDICACION + " - (" + articuloEncontrado.SERVICIO + ")"
     codMinisterial.textContent = articuloEncontrado.CODARTICULO
+    if (articuloEncontrado.SERVICIO != "DESPACHO") {
+      stockDeposito.textContent = articuloEncontrado.STOCKENDISPENSACION
+    } else {
     stockDeposito.textContent = articuloEncontrado.STOCKENDEPOSITO
+    }
     consumo.textContent = articuloEncontrado.STOCK_MIN
     if (articuloEncontrado.STOCKENDEPOSITO <= articuloEncontrado.STOCK_MIN) {
       estadoStock.textContent = "Critico"
@@ -465,6 +469,9 @@ filtrosVencimiento.addEventListener("change", (event) => {
         const fechaElegida = listadoVto.filter((match) => {
           return match.FECHAVTO === fechaBtn
         })
+        if (fechaElegida == "") {
+          alert("Sin resultados")
+        }
         fechaElegida.forEach((articulo) => {
           const row = tablaListados.insertRow();
         const codigoCell = row.insertCell(0);
