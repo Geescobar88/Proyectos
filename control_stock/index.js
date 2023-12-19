@@ -11,7 +11,7 @@ async function cargarDatos() {
 
 }
 
-cargarDatos();
+// cargarDatos();
 
 ///////////////////////////////////////MENU/////////////////////////////////////////
 
@@ -496,6 +496,37 @@ filtrosVencimiento.addEventListener("change", (event) => {
       filtrosVencimientoEFM.style.display = "inline"
       filtrosVencimientoEFY.style.display = "inline"
       btnSeleccionar.style.display = "inline"
+
+      btnSeleccionar.addEventListener('click', () => {
+        tablaListados.innerHTML = "<tr><th>Codigo</th><th>Medicacion</th><th>Lote</th><th>Vto</th><th>Cantidad</th></tr>";
+        const EFechas = listadoVto.filter(match => {
+          const fechaInicial = filtrosVencimientoM.value + filtrosVencimientoY.value
+          const fiSeparada = fechaInicial.split("-")
+          const fechaInicialP = new Date(fiSeparada[2] + "-" + fiSeparada[1] + "-" +  fiSeparada[0])
+          const fechaFinal = filtrosVencimientoEFM.value + filtrosVencimientoEFY.value
+          const ffSeparada = fechaFinal.split("-")
+          const fechaFinalP = new Date(ffSeparada[2] + "-" + ffSeparada[1] + "-" +  ffSeparada[0])
+          const fVtoS = match.FECHAVTO.split("/")
+          const fVto = new Date(fVtoS[2] + "-" + fVtoS[1] + "-" + fVtoS[0])
+          return fVto >= fechaInicialP && fVto <= fechaFinalP
+        })
+        
+        EFechas.forEach((articulo) => {
+          const row = tablaListados.insertRow();
+        const codigoCell = row.insertCell(0);
+        const medicacionCell = row.insertCell(1);
+        const loteCell = row.insertCell(2);
+        const vtoCell = row.insertCell(3);
+        const cantidadCell = row.insertCell(4);
+
+        codigoCell.innerHTML = articulo.CODARTICULO;
+        medicacionCell.innerHTML = articulo.NOMBREGENERICO;
+        loteCell.innerHTML = articulo.NROLOTE
+        vtoCell.innerHTML = articulo.FECHAVTO
+        cantidadCell.innerHTML = articulo.STOCKEXISTENTE
+        })
+
+      })
     break;
   }
 })
